@@ -3,35 +3,98 @@ window.onload = function () {
   window.scrollTo(0, 0);
 };
 
-// Menu toggle
+// ============================
+// Seletores
+// ============================
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('nav');
 const navLinks = document.querySelectorAll('nav ul li a');
 const sections = document.querySelectorAll('main section');
+const dropdowns = document.querySelectorAll('nav ul li.dropdown');
 
-// Abrir/fechar menu no mobile
-menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('active');
-  nav.classList.toggle('active');
-});
+// ============================
+// Funções utilitárias
+// ============================
+function closeAllDropdowns() {
+  dropdowns.forEach(drop => drop.classList.remove('active'));
+}
 
-// Fechar menu ao clicar em links (exceto dropdown no mobile)
+function closeMenu() {
+  if (menuToggle) menuToggle.classList.remove('active');
+  if (nav) nav.classList.remove('active');
+  closeAllDropdowns();
+}
+
+// ============================
+// Abrir / fechar menu (botão X)
+// ============================
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.contains('active');
+
+    menuToggle.classList.toggle('active');
+    nav.classList.toggle('active');
+
+    // Se estiver fechando o menu, fecha os submenus
+    if (isOpen) {
+      closeAllDropdowns();
+    }
+  });
+}
+
+// ============================
+// Fechar menu ao clicar em links
+// ============================
 navLinks.forEach(link => {
   link.addEventListener('click', (e) => {
-    const parentLi = link.closest('.dropdown');
+    const parentDropdown = link.closest('.dropdown');
 
-    // Se for "Ministérios" no mobile → NÃO fecha
-    if (parentLi && window.innerWidth <= 768) {
+    // Se for o link "Ministérios" no mobile → só abre/fecha dropdown
+    if (parentDropdown && window.innerWidth <= 768) {
       return;
     }
 
-    // Outros links → fecha menu
-    menuToggle.classList.remove('active');
-    nav.classList.remove('active');
+    // Outros links → fecha tudo
+    closeMenu();
   });
 });
 
-// Destaca link ativo ao rolar a página
+// ============================
+// Dropdowns (Ministérios)
+// ============================
+dropdowns.forEach(drop => {
+  const link = drop.querySelector('a');
+
+  link.addEventListener('click', function (e) {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      dropdowns.forEach(d => {
+        if (d !== drop) d.classList.remove('active');
+      });
+
+      drop.classList.toggle('active');
+    }
+  });
+});
+
+// ============================
+// Fecha dropdown ao clicar fora (mobile)
+// ============================
+document.addEventListener('click', (e) => {
+  if (window.innerWidth <= 768) {
+    const isClickInsideDropdown = e.target.closest('.dropdown');
+
+    if (!isClickInsideDropdown) {
+      closeAllDropdowns();
+    }
+  }
+});
+
+// ============================
+// Destacar link ativo ao rolar
+// ============================
 window.addEventListener("scroll", () => {
   let scrollPos = window.scrollY + 100;
 
@@ -41,6 +104,7 @@ window.addEventListener("scroll", () => {
 
     if (scrollPos >= top && scrollPos < top + height) {
       const id = section.getAttribute("id");
+
       navLinks.forEach(link => {
         link.classList.remove("active");
         if (link.getAttribute("href") === `#${id}`) {
@@ -51,30 +115,14 @@ window.addEventListener("scroll", () => {
   });
 });
 
+// ============================
+// Formulário de contato
+// ============================
+const form = document.getElementById("contact-form");
+const successMessage = document.getElementById("success-message");
 
-// Dropdowns (Ministérios)
-const dropdowns = document.querySelectorAll('nav ul li.dropdown');
-
-dropdowns.forEach(drop => {
-  const link = drop.querySelector('a');
-
-  link.addEventListener('click', function (e) {
-    if (window.innerWidth <= 768) {
-      e.preventDefault(); // evita a navegação
-      dropdowns.forEach(d => {
-        if (d !== drop) d.classList.remove('active');
-      });
-      drop.classList.toggle('active');
-    }
-  });
-});
-
-
-
-  const form = document.getElementById("contact-form");
-  const successMessage = document.getElementById("success-message");
-
-  form.addEventListener("submit", function(event) {
+if (form) {
+  form.addEventListener("submit", function (event) {
     event.preventDefault();
 
     fetch(form.action, {
@@ -82,19 +130,17 @@ dropdowns.forEach(drop => {
       body: new FormData(form),
       headers: { "Accept": "application/json" }
     })
-    .then(response => {
-      if (response.ok) {
-        successMessage.style.display = "block";
-        form.reset();
+      .then(response => {
+        if (response.ok) {
+          successMessage.style.display = "block";
+          form.reset();
 
-        // faz a mensagem sumir após 5 segundos
-        setTimeout(() => {
-          successMessage.style.display = "none";
-        }, 2000);
-
-      } else {
-        alert("Erro ao enviar. Tente novamente.");
-      }
-    });
+          setTimeout(() => {
+            successMessage.style.display = "none";
+          }, 2000);
+        } else {
+          alert("Erro ao enviar. Tente novamente.");
+        }
+      });
   });
-
+}

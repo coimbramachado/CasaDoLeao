@@ -1,20 +1,57 @@
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+const dropdown = document.querySelector('.dropdown');
 
-  const menuToggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('nav');
-  const dropdown = document.querySelector('.dropdown');
-  const ministerioLink = dropdown.querySelector('a');
+// Se o dropdown existir, pega o link
+const ministerioLink = dropdown ? dropdown.querySelector('a') : null;
 
-  // Abrir/fechar menu hamburger
+// ============================
+// Função para fechar submenu
+// ============================
+function closeDropdown() {
+  if (dropdown) dropdown.classList.remove('active');
+}
+
+// ============================
+// Abrir/fechar menu hamburger
+// ============================
+if (menuToggle) {
   menuToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.contains('active');
+
     menuToggle.classList.toggle('active');
     nav.classList.toggle('active');
-  });
 
-  // Clique em "Ministérios" no mobile
+    // Se estiver fechando o menu, fecha o submenu
+    if (isOpen) {
+      closeDropdown();
+    }
+  });
+}
+
+// ============================
+// Clique em "Ministérios" no mobile
+// ============================
+if (ministerioLink) {
   ministerioLink.addEventListener('click', (e) => {
     if (window.innerWidth <= 768) {
       e.preventDefault(); // NÃO navega
-      dropdown.classList.toggle('active'); // Abre submenu
+      e.stopPropagation(); // evita conflito com outros eventos
+
+      dropdown.classList.toggle('active'); // Abre/fecha submenu
     }
   });
+}
 
+// ============================
+// Fecha dropdown ao clicar fora (mobile)
+// ============================
+document.addEventListener('click', (e) => {
+  if (window.innerWidth <= 768) {
+    const isClickInsideDropdown = e.target.closest('.dropdown');
+
+    if (!isClickInsideDropdown) {
+      closeDropdown();
+    }
+  }
+});
