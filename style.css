@@ -1,0 +1,659 @@
+/* -------- Reset básico -------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+html,
+body {
+  scroll-behavior: smooth; /* scroll suave */
+  max-width: 100%;
+  overflow-x: hidden;
+  color: #000000;
+}
+
+/* -------- Cabeçalho -------- */
+header {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 80px;
+  background-color: rgba(46, 49, 56, 1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+header .titulo-img {
+  width: 120px;
+  height: auto;
+}
+
+/* Menu de navegação */
+/* Menu normal para desktop */
+nav {
+  display: flex; /* padrão desktop */
+  justify-content: flex-end;
+  align-items: center;
+  position: static; /* padrão desktop */
+  max-height: none;
+  background-color: transparent;
+  transition: none;
+}
+
+nav ul {
+  display: flex; /* links lado a lado no desktop */
+  flex-direction: row;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+    list-style: none; /* remove os pontos */
+  padding: 0;       /* remove espaçamento interno da lista */
+  margin: 0;  
+}
+
+nav ul li a {
+  padding: 8px 12px;         /* espaço interno confortável */
+  font-size: 1rem;
+  color: yellow;
+  text-decoration: none;
+  position: relative;        /* necessário para o efeito de underline animado */
+  transition: color 0.3s ease, transform 0.3s ease; /* animação suave */
+}
+
+/* Efeito hover: leve elevação e cor diferente */
+nav ul li a:hover {
+  color: #fff;               /* muda cor ao passar o mouse */
+  transform: translateY(-3px); /* leve "flutuar" */
+}
+
+/* Efeito de underline animado */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;              /* ligeiramente abaixo do texto */
+  width: 0%;
+  height: 2px;
+  background-color: yellow;  /* mesma cor do texto */
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;               /* underline cresce ao passar o mouse */
+}
+
+
+/* Submenu inicial escondido */
+/* Estilo base do submenu */
+nav ul li {
+  position: relative; /* necessário para o submenu */
+}
+
+/* Submenu escondido por padrão */
+nav ul li .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;           /* aparece logo abaixo do item pai */
+  left: 0;
+  background-color: rgba(46, 49, 56, 0.98);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+  min-width: 150px;
+  z-index: 10;
+}
+
+/* Links do submenu */
+nav ul li .submenu li a {
+  display: block;
+  padding: 10px 16px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+}
+
+/* Hover submenu (desktop) */
+nav ul li .submenu li a:hover {
+  
+  transform: translateX(5px); /* leve movimento */
+}
+
+/* Mostrar submenu no hover (desktop) */
+nav ul li.dropdown:hover .submenu {
+  display: block;
+}
+/* Menu hamburger */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.menu-toggle span {
+  height: 4px;
+  width: 100%;
+  background: #ffcc01;
+  border-radius: 2px;
+  transition: 0.4s;
+
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -5px);
+}
+
+/* -------- Seções -------- */
+main {
+}
+section {
+  scroll-margin-top: 80px; /* altura do header */
+}
+
+/* Início */
+#inicio {
+  color: #f4f4f4;
+  text-align: left;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #333333;
+  background-size: cover;
+  background-position: center;
+}
+
+#inicio h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  margin-left: 300px;
+  font-family: "Montserrat", sans-serif;
+}
+
+#inicio button {
+  display: block;
+  margin: 14px auto;
+  padding: 15px 20px;
+  border-radius: 50px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.5s;
+}
+
+#inicio button:hover {
+  background-color: rgba(255, 204, 1, 1);
+}
+
+/* Sobre */
+#sobre {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 5%;
+}
+
+#sobre img {
+  width: 600px;
+  height: auto;
+  object-fit: cover;
+}
+
+#sobre .texto-quadrado {
+  background-color: #ffffff;
+  border: 2px solid #d4af37;
+  padding: 40px 35px;
+  width: 420px;
+  box-sizing: border-box;
+  margin-top: 40px;
+}
+
+#sobre h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 25px;
+  margin-left: 10px;
+}
+
+#sobre .texto-quadrado span {
+  display: block;
+  font-size: 16px;
+  line-height: 1.9;
+  text-align: justify;
+  color: #000000;
+  font-family: 'Arial', sans-serif; /* ou outra fonte */
+  font-weight: 600; /* Mais grosso (400 é normal, 700 é negrito) */
+}
+
+/* YouTube / Vídeo ao vivo */
+#youtube .container {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  padding: 60px;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+
+/* Vídeo */
+.video-container video {
+  width: 450px;
+  max-width: 1200px;
+  aspect-ratio: 16/9;
+  border-radius: 15px;
+}
+
+/* Coluna de texto */
+.texto-direita {
+  flex: 1;
+  min-width: 20px;
+  color: white;
+}
+
+.texto-direita h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-family: "Arial", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.texto-direita .escrita {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Botão do canal */
+.botao-canal {
+  display: flex;
+  justify-content: center;
+}
+
+.botao-canal a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  color: #fff;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.35);
+  margin-top: 10%;
+}
+
+.botao-canal a:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 14px 30px rgba(255, 0, 0, 0.5);
+  background: linear-gradient(135deg, #ff1a1a, #b30000);
+}
+
+.botao-canal a:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 6px 15px rgba(255, 0, 0, 0.3);
+}
+
+/* Ministerio */
+
+#ministerios {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #000000;
+  font-family: 'Arial', sans-serif; /* Pode trocar para qualquer fonte que quiser */
+}
+
+#ministerios h2 {
+  color: white;
+  display: inline-block; /* Para que a linha fique do tamanho do texto */
+  position: relative; /* Necessário para o pseudo-elemento */
+  font-family: 'Arial', sans-serif; /* Fonte do título */
+  font-size: 36px; /* Tamanho maior do título */
+  font-weight: bold; /* Para dar mais destaque */
+}
+
+
+/* Linha amarela abaixo do h2 */
+#ministerios h2::after {
+  content: "";
+  display: block;
+  width: 200px; /* Largura da linha, pode ajustar */
+  height: 3px; /* Espessura da linha */
+
+  margin: 8px auto 0; /* Espaço acima e centralizado */
+  border-radius: 2px; /* Bordas suaves da linha */
+}
+
+.ministerios-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os itens quebrem em linha */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 10px; /* Espaço entre os blocos */
+  margin-top: 10%;
+}
+
+.ministerio_IMG {
+  display: flex;
+  flex-direction: column; /* Coloca a imagem e o botão em coluna */
+  align-items: center; /* Centraliza a imagem e o botão */
+  width: calc(33.333% - 20px); /* 3 colunas, considerando o gap */
+  box-sizing: border-box;
+  margin-bottom: 20px; /* Espaço entre linhas */
+}
+
+.ministerio_IMG img {
+  width: 293px; /* Largura fixa */
+  height: auto; /* Mantém proporção */
+  border-radius: 8px; /* Cantos arredondados */
+  transition: transform 0.3s; /* Animação suave ao hover */
+  display: block; /* Evita espaço extra abaixo da imagem */
+  margin-bottom: 10px; /* Espaço entre imagem e botão */
+  margin-top: 8%;
+}
+
+.btn-saiba-mais {
+  text-decoration: none;
+  background-color: #000000; /* Preto */
+  color: #ffffff; /* Texto branco */
+  border: 2px solid #ffffff; /* Borda branca */
+  padding: 12px 24px; /* Mais espaçamento */
+  border-radius: 20px; /* Mais arredondado */
+  display: inline-block;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  margin-top: 5%;
+}
+
+/* Hover: efeito sutil */
+.btn-saiba-mais:hover {
+  background-color: #222222; /* Preto mais claro ao passar o mouse */
+  transform: translateY(2px); /* Desce um pouco */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Ao clicar */
+.btn-saiba-mais:active {
+  transform: translateY(0); /* Volta ao normal */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  background-color: #111; /* fundo escuro */
+  color: #fff; /* texto branco */
+  text-align: center;
+  padding: 30px 20px;
+}
+
+footer p {
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* espaço entre os ícones */
+}
+
+.social-icons a img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.2); /* efeito de zoom */
+  filter: brightness(1.2); /* fica mais claro */
+}
+
+/* Responsividade Mobile */
+/* Responsividade hamburguer */
+/* Responsividade - telas menores que 768px */
+@media (max-width: 768px) {
+  /* Hamburger visível apenas no mobile */
+  header .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  header .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff; /* cor do hamburger */
+    display: block;
+    border-radius: 2px;
+  }
+
+ /* Nav container ocupa toda a tela abaixo do header */
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(46, 49, 56, 0.98);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    display: flex;
+    justify-content: center; /* centraliza horizontalmente */
+  }
+
+  /* Menu aberto */
+  nav.active {
+    max-height: 300px; /* ou ajuste conforme quantidade de links */
+  }
+
+  /* Lista vertical e centralizada */
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centraliza verticalmente dentro do nav */
+    align-items: center;     /* centraliza horizontalmente os itens */
+    padding: 20px 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  /* Links do menu */
+  nav ul li a {
+    padding: 10px 0;
+    font-size: 1.1rem;
+    text-align: center;
+    color: #fff;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+  }
+
+}
+
+@media (max-width: 768px) {
+  header .titulo-img {
+    margin: 0; /* remove qualquer margem negativa ou extra */
+    text-align: left; /* garante que fique alinhada à esquerda */
+  }
+}
+
+/* telas médias Secao inicio */
+@media (max-width: 768px) {
+  #inicio h2 {
+    font-size: 2rem;
+    margin-left: 0;
+    padding: 0 16px;
+    text-align: center;
+  }
+}
+
+/* telas pequenas (celular)  Secao sobre*/
+@media (max-width: 480px) {
+  #inicio h2 {
+    font-size: 1.5rem;
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  #sobre img {
+    display: none;
+  }
+#sobre .texto-quadrado {
+  padding: 30px 10px; /* Menos espaço nas laterais */
+  max-width: 700px; /* Limita a largura para deixar o bloco mais estreito */
+  margin: 0 auto; /* Centraliza o texto horizontalmente */
+}
+
+  #sobre h2 {
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  #sobre .texto-quadrado span {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  #sobre h2 {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  #sobre .texto-quadrado span {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+/* Seção YouTube (texto acima do vídeo + vídeo menor) */
+@media (max-width: 768px) {
+  #youtube .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Texto acima do vídeo */
+  .texto-direita {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 16px;
+    padding: 0 12px;
+  }
+
+  /* Vídeo abaixo */
+  #youtube .video-container {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #youtube .video-container video {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  /* Botão */
+  .botao-canal a {
+    margin-left: 0;
+  }
+}
+
+/* Responsivo para tablets Ministerios */
+@media (max-width: 992px) {
+  .ministerio_IMG {
+    width: calc(50% - 20px); /* 2 colunas em tablets */
+  }
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+  .ministerio_IMG {
+    width: 100%; /* 1 coluna no celular */
+  }
+
+  .ministerio_IMG img {
+    width: 80%; /* Reduz um pouco a imagem para caber melhor */
+  }
+}
+
+
+
+/* Ajustes mobile subtitulo */
+/* Mobile: submenu aparece ao clicar */
+/* Mobile */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  nav ul li.dropdown .submenu {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+  }
+
+  nav ul li.dropdown.active .submenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li .submenu li a {
+    padding: 10px 0;
+    text-align: center;
+  }
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa do Leão Londrina</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/icon.png" type="image/png">
+  <!-- no <head> -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1 class="titulo">
+      <img src="img/LEAO.PNG" class="titulo-img">
+    </h1>
+
+    <button class="menu-toggle" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+<nav>
+  <ul>
+    <li><a href="#inicio">Início</a></li>
+    <li><a href="#sobre">Sobre Nós</a></li>
+
+    <!-- Menu com submenu -->
+    <li class="dropdown">
+      <a href="#ministerios">Ministerios ▼</a>
+      <ul class="submenu">
+        <li><a href=".\pages\homens.html">Entre homens</a></li>
+        <li><a href=".\pages\elas.html">Entre Elas</a></li>
+        <li><a href=".\pages\teens.html">Teens</a></li>
+        <li><a href=".\pages\Kids.html">Casa Do Leao Kids</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+  </header>
+
+  <main>
+    <section id="inicio">
+      <h2>TODOS OS DIAS<br>
+        NO MESMO LUGAR <br>
+        FAZENDO A MESMA COISA</h2>
+      <a href="#sobre">
+        <button>Saiba Mais</button>
+      </a>
+    </section>
+    <section id="sobre">
+     <img src="img/LEAO.PNG" alt="Foto do evento" >
+      <div>
+        <B>
+          <h2>CASA DO LEÃO</h2>
+        </B>
+        <div class="texto-quadrado">
+          <span>
+            Somos uma igreja cristã, apostólica e profética chamada para amar e servir as nações da terra e a obra
+            missionária de manifestar o Reino de Deus com poder onde estivermos, resgatando almas das trevas e
+            conduzindo-as ao íntimo relacionamento com Pai Celestial. Assim, pela edificação e revelação do Espírito
+            Santo, buscamos conduzir cada crente a alcançar a maturidade espiritual e viver em conformidade com a
+            palavra de Deus com objetivo de refletir a imagem de Jesus Cristo em nossa geração.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section id="youtube">
+      <div class="container">
+        <!-- Coluna do vídeo -->
+        <div class="video-container">
+          <video controls autoplay muted loop playsinline>
+            <source src="img/A igreja Casa do Leão em Londrina.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo.
+          </video>
+        </div>
+
+        <!-- Coluna do texto -->
+        <div class="texto-direita">
+          <h2>Programação ao vivo</h2>
+          <div class="escrita">
+            Acesse o nosso canal oficial no YouTube e veja a transmissão
+            <br> simultânea dos turnos de oração
+          </div>
+          <div class="botao-canal">
+            <a href="https://www.youtube.com/@casadoleao.londrina" target="_blank">
+              Visite nosso canal
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="ministerios">
+  <h2>Ministérios</h2>
+  <div class="ministerios-container">
+
+    <div class="ministerio_IMG">
+      <img src="img/teens.png" alt="Ministério 1">
+      <a href="pages\teens.html" class="btn-saiba-mais">Saiba Mais</a>
+    </div>
+
+    <div class="ministerio_IMG">
+      <img src="img/homens.png" alt="Ministério 2">
+      <a href="pages\homens.html" class="btn-saiba-mais">Saiba Mais</a>
+    </div>
+
+    <div class="ministerio_IMG">
+      <img src="img/elas.png" alt="Ministério 3" width="293" height="102" sizes="293px">
+      <a href="pages\elas.html" class="btn-saiba-mais">Saiba Mais</a>
+    </div>
+
+    <div class="ministerio_IMG">
+      <img src="img/kids.png" alt="Ministério 4">
+      <a href="pages\Kids.html" class="btn-saiba-mais">Saiba Mais</a>
+    </div>
+
+    <div class="ministerio_IMG">
+      <img src="img/jardim.png" alt="Ministério 5">
+      <a href="#detalhes5" class="btn-saiba-mais">Saiba Mais</a>
+    </div>
+
+    <div class="ministerio_IMG">
+      <img src="img/casa.png" alt="Ministério 6">
+      <a href="#detalhes6" class="btn-saiba-mais">Saiba Mais</a>
+    </div>
+
+  </div>
+</section>
+
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Endereço: Rua Principal, 123, Cidade/Estado</p>
+      <p>Telefone: (XX) XXXX-XXXX</p>
+      <p>Email: contato@nomedaigreja.com.br</p>
+    </section>
+  </main>
+
+<footer>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+      <img src="img\icon\face.png" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+      <img src="img\icon\insta.png" alt="Instagram">
+    </a>
+    <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+      <img src="img\icon\you.png" alt="YouTube">
+    </a>
+    <a href="https://www.spotify.com/" target="_blank" aria-label="Spotify">
+      <img src="img\icon\spoty.png" alt="Spotify">
+    </a>
+  </div>
+  <br>
+  <p>&copy; 2025 Nome da Igreja. Todos os direitos reservados.</p>
+</footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saiba Mais - Entre Homens</title>
+  <link rel="stylesheet" href="styles2.css"> <!-- usa o mesmo CSS da página principal -->
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header>
+    <h1 class="titulo">
+      <img src="..\img\LEAO.PNG" class="titulo-img" >
+    </h1>
+
+    <button class="menu-toggle" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav>
+      <ul>
+        <li><a href="..\index.html">Início</a></li>
+        <li><a href="..\index.html#sobre">Sobre Nós</a></li>
+
+        <li class="dropdown">
+          <a href="index.html#ministerios">Ministerios ▼</a>
+          <ul class="submenu">
+            <li><a href="..\pages\homens.html">Entre Homens</a></li>
+            <li><a href="..\pages\elas.html">Entre Elas</a></li>
+            <li><a href="..\pages\teens.html">Teens</a></li>
+            <li><a href="..\pages\kids.html">Kids</a></li>
+          </ul>
+        </li>
+
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal -->
+<main>
+  <!-- Tela de Exibição do Ministério -->
+  <section id="exibicao-ministerio">
+    <div class="container-exibicao">
+      <!-- Imagem do Ministério -->
+      <div class="imagem-exibicao">
+        <img src="img/ministerio-exemplo.jpg" alt="Ministério Exemplo">
+      </div>
+
+      <!-- Conteúdo do Ministério -->
+      <div class="conteudo-exibicao">
+        <h2>Entre Homens</h2>
+        <p>
+          Aqui você pode colocar uma descrição detalhada do ministério. 
+          Fale sobre sua missão, atividades, horários de encontro e qualquer informação relevante.
+        </p>
+        <p>
+          Adicione também histórias, projetos especiais e links para redes sociais se necessário.
+        </p>
+
+        <!-- Botão Saiba Mais -->
+        <a href="#inicio" class="btn-saiba-mais">Voltar</a>
+      </div>
+    </div>
+  </section>
+</main>
+<section id="ministerios">
+  <h2>Ministérios</h2>
+  <div class="ministerios-container">
+
+    <div class="ministerio_IMG">
+      <img src="..\img\teens.png" alt="Ministério 1">
+      <a href="..\pages\teens.html" class="btn-saiba-mais">Saiba Mais</a>
+    </div>
+
+    <div class="ministerio_IMG">
+      <img src="..\img\homens.png" alt="Ministério 2">
+      <a href="..\pages\homens.html" class="btn-saiba-mais">Saiba Mais</a>
+    </div>
+
+    <div class="ministerio_IMG">
+      <img src="..\img\elas.png" alt="Ministério 3" width="293" height="102" sizes="293px">
+      <a href="..\pages\elas.html" class="btn-saiba-mais">Saiba Mais</a>
+    </div>
+
+    <div class="ministerio_IMG">
+      <img src="..\img\kids.png" alt="Ministério 4">
+      <a href="..\pages\kids.html" class="btn-saiba-mais">Saiba Mais</a>
+    </div>
+
+    <div class="ministerio_IMG">
+      <img src="..\img\jardim.png" alt="Ministério 5">
+      <a href="..\pages\homens.html" class="btn-saiba-mais">Saiba Mais</a>
+    </div>
+
+    <div class="ministerio_IMG">
+      <img src="..\img\casa.png" alt="Ministério 6">
+      <a href="..\pages\homens.html" class="btn-saiba-mais">Saiba Mais</a>
+    </div>
+
+  </div>
+</section>
+  <!-- JS -->
+  <script src="script2.js"></script> <!-- mesmo script da primeira página -->
+</body>
+</html>

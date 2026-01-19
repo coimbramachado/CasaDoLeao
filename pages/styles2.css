@@ -1,0 +1,527 @@
+/* -------- Reset básico -------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body, html {
+  scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: #111; /* fundo escuro para a página de ministérios */
+  color: #fff;
+}
+
+/* -------- Header / Navbar -------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  background-color: rgba(46, 49, 56, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .titulo-img {
+  width: 120px;
+  height: auto;
+}
+
+/* Menu de navegação */
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav ul li a {
+  padding: 8px 12px;
+  font-size: 1rem;
+  color: #ffcc01;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+/* Hover com leve movimento e underline */
+nav ul li a:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #ffcc01;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Submenu */
+nav ul li {
+  position: relative;
+}
+
+nav ul li .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(46, 49, 56, 0.98);
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+  min-width: 180px;
+}
+
+nav ul li .submenu li a {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  transition: background 0.3s, transform 0.3s;
+}
+
+nav ul li .submenu li a:hover {
+  background-color: #222;
+  transform: translateX(5px);
+}
+
+/* Mostrar submenu no hover desktop */
+nav ul li.dropdown:hover .submenu {
+  display: block;
+}
+
+/* -------- Menu Hamburger -------- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.menu-toggle span {
+  height: 4px;
+  width: 100%;
+  background: #ffcc01;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 6px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* -------- Main / Seções -------- */
+main {
+  padding: 60px 20px;
+}
+
+section {
+  margin-bottom: 60px;
+  scroll-margin-top: 80px;
+}
+
+section h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffcc01;
+}
+
+section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  text-align: center;
+  color: #eee;
+}
+
+/* Botão Voltar */
+.btn-saiba-mais {
+  text-decoration: none;
+  background-color: #000;
+  color: #ffcc01;
+  border: 2px solid #ffcc01;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-weight: bold;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.btn-saiba-mais:hover {
+  background-color: #222;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+/* Container da tela de exibição */
+#exibicao-ministerio {
+  background-color: white;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-exibicao {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Imagem */
+.imagem-exibicao img {
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imagem-exibicao img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Conteúdo */
+.conteudo-exibicao {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  
+}
+
+.conteudo-exibicao h2 {
+  font-size: 2rem;
+  color: #ffcc01;
+  text-align: center;
+}
+
+.conteudo-exibicao p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #000000;
+  text-align: justify;
+}
+
+/* Botão Voltar */
+.conteudo-exibicao .btn-saiba- mais {
+  align-self: center;
+  margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .container-exibicao {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .conteudo-exibicao {
+    max-width: 90%;
+  }
+
+  .imagem-exibicao img {
+    width: 80%;
+  }
+}
+
+
+/* -------- Footer -------- */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.social-icons a img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.2);
+  filter: brightness(1.3);
+}
+/* Ministerio */
+
+#ministerios {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #000000;
+  font-family: 'Arial', sans-serif; /* Pode trocar para qualquer fonte que quiser */
+}
+
+#ministerios h2 {
+  color: white;
+  display: inline-block; /* Para que a linha fique do tamanho do texto */
+  position: relative; /* Necessário para o pseudo-elemento */
+  font-family: 'Arial', sans-serif; /* Fonte do título */
+  font-size: 36px; /* Tamanho maior do título */
+  font-weight: bold; /* Para dar mais destaque */
+}
+
+
+/* Linha amarela abaixo do h2 */
+#ministerios h2::after {
+  content: "";
+  display: block;
+  width: 200px; /* Largura da linha, pode ajustar */
+  height: 3px; /* Espessura da linha */
+
+  margin: 8px auto 0; /* Espaço acima e centralizado */
+  border-radius: 2px; /* Bordas suaves da linha */
+}
+
+.ministerios-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os itens quebrem em linha */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 10px; /* Espaço entre os blocos */
+  margin-top: 10%;
+}
+
+.ministerio_IMG {
+  display: flex;
+  flex-direction: column; /* Coloca a imagem e o botão em coluna */
+  align-items: center; /* Centraliza a imagem e o botão */
+  width: calc(33.333% - 20px); /* 3 colunas, considerando o gap */
+  box-sizing: border-box;
+  margin-bottom: 20px; /* Espaço entre linhas */
+}
+
+.ministerio_IMG img {
+  width: 293px; /* Largura fixa */
+  height: auto; /* Mantém proporção */
+  border-radius: 8px; /* Cantos arredondados */
+  transition: transform 0.3s; /* Animação suave ao hover */
+  display: block; /* Evita espaço extra abaixo da imagem */
+  margin-bottom: 10px; /* Espaço entre imagem e botão */
+  margin-top: 8%;
+}
+
+.btn-saiba-mais {
+  text-decoration: none;
+  background-color: #000000; /* Preto */
+  color: #ffffff; /* Texto branco */
+  border: 2px solid #ffffff; /* Borda branca */
+  padding: 12px 24px; /* Mais espaçamento */
+  border-radius: 20px; /* Mais arredondado */
+  display: inline-block;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  margin-top: 5%;
+}
+
+/* Hover: efeito sutil */
+.btn-saiba-mais:hover {
+  background-color: #222222; /* Preto mais claro ao passar o mouse */
+  transform: translateY(2px); /* Desce um pouco */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Ao clicar */
+.btn-saiba-mais:active {
+  transform: translateY(0); /* Volta ao normal */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  background-color: #111; /* fundo escuro */
+  color: #fff; /* texto branco */
+  text-align: center;
+  padding: 30px 20px;
+}
+
+footer p {
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* espaço entre os ícones */
+}
+
+.social-icons a img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.2); /* efeito de zoom */
+  filter: brightness(1.2); /* fica mais claro */
+}
+
+/* -------- Responsividade -------- */
+@media (max-width: 768px) {
+  /* Navbar mobile */
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(46, 49, 56, 0.98);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav.active {
+    max-height: 400px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  nav ul li .submenu {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li.dropdown.active .submenu {
+    display: flex;
+  }
+
+  nav ul li .submenu li a {
+    padding: 12px 0;
+    text-align: center;
+  }
+}
+
+/* Seções mobile */
+@media (max-width: 480px) {
+  section h2 {
+    font-size: 1.6rem;
+  }
+
+  section p {
+    font-size: 1rem;
+    padding: 0 12px;
+  }
+
+  .btn-saiba-mais {
+    padding: 10px 20px;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .ministerio_IMG {
+    width: calc(50% - 20px); /* 2 colunas em tablets */
+  }
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+  .ministerio_IMG {
+    width: 100%; /* 1 coluna no celular */
+  }
+
+  .ministerio_IMG img {
+    width: 80%; /* Reduz um pouco a imagem para caber melhor */
+  }
+}
+
+
+
+/* Ajustes mobile subtitulo */
+/* Mobile: submenu aparece ao clicar */
+/* Mobile */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  nav ul li.dropdown .submenu {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+  }
+
+  nav ul li.dropdown.active .submenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li .submenu li a {
+    padding: 10px 0;
+    text-align: center;
+  }
+}
