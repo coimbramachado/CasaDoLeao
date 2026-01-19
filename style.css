@@ -20,6 +20,7 @@ body {
 
 /* -------- Cabeçalho -------- */
 header {
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -57,25 +58,23 @@ nav ul {
   gap: 20px;
   padding: 0;
   margin: 0;
-  list-style: none; /* remove os pontos */
-  padding: 0; /* remove espaçamento interno da lista */
-  margin: 0;
+    list-style: none; /* remove os pontos */
+  padding: 0;       /* remove espaçamento interno da lista */
+  margin: 0;  
 }
 
 nav ul li a {
-  padding: 8px 12px; /* espaço interno confortável */
+  padding: 8px 12px;         /* espaço interno confortável */
   font-size: 1rem;
   color: yellow;
   text-decoration: none;
-  position: relative; /* necessário para o efeito de underline animado */
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease; /* animação suave */
+  position: relative;        /* necessário para o efeito de underline animado */
+  transition: color 0.3s ease, transform 0.3s ease; /* animação suave */
 }
 
 /* Efeito hover: leve elevação e cor diferente */
 nav ul li a:hover {
-  color: #fff; /* muda cor ao passar o mouse */
+  color: #fff;               /* muda cor ao passar o mouse */
   transform: translateY(-3px); /* leve "flutuar" */
 }
 
@@ -84,16 +83,17 @@ nav ul li a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -3px; /* ligeiramente abaixo do texto */
+  bottom: -3px;              /* ligeiramente abaixo do texto */
   width: 0%;
   height: 2px;
-  background-color: yellow; /* mesma cor do texto */
+  background-color: yellow;  /* mesma cor do texto */
   transition: width 0.3s ease;
 }
 
 nav ul li a:hover::after {
-  width: 100%; /* underline cresce ao passar o mouse */
+  width: 100%;               /* underline cresce ao passar o mouse */
 }
+
 
 /* Submenu inicial escondido */
 /* Estilo base do submenu */
@@ -105,7 +105,7 @@ nav ul li {
 nav ul li .submenu {
   display: none;
   position: absolute;
-  top: 100%; /* aparece logo abaixo do item pai */
+  top: 100%;           /* aparece logo abaixo do item pai */
   left: 0;
   background-color: rgba(46, 49, 56, 0.98);
   list-style: none;
@@ -122,9 +122,7 @@ nav ul li .submenu li a {
   padding: 10px 16px;
   color: #ffffff;
   text-decoration: none;
-  transition:
-    background 0.3s,
-    transform 0.3s;
+  transition: background 0.3s, transform 0.3s;
 }
 
 /* Hover submenu (desktop) */
@@ -252,7 +250,7 @@ section {
   line-height: 1.9;
   text-align: justify;
   color: #000000;
-  font-family: "Arial", sans-serif; /* ou outra fonte */
+  font-family: 'Arial', sans-serif; /* ou outra fonte */
   font-weight: 600; /* Mais grosso (400 é normal, 700 é negrito) */
 }
 
@@ -315,10 +313,7 @@ section {
   border-radius: 50px;
   font-weight: bold;
   text-decoration: none;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    background 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   box-shadow: 0 8px 20px rgba(255, 0, 0, 0.35);
   margin-top: 10%;
 }
@@ -340,18 +335,18 @@ section {
   padding: 40px 20px;
   text-align: center;
   background-color: #000000;
-  font-family:
-    "Arial", sans-serif; /* Pode trocar para qualquer fonte que quiser */
+  font-family: 'Arial', sans-serif; /* Pode trocar para qualquer fonte que quiser */
 }
 
 #ministerios h2 {
   color: white;
   display: inline-block; /* Para que a linha fique do tamanho do texto */
   position: relative; /* Necessário para o pseudo-elemento */
-  font-family: "Arial", sans-serif; /* Fonte do título */
+  font-family: 'Arial', sans-serif; /* Fonte do título */
   font-size: 36px; /* Tamanho maior do título */
   font-weight: bold; /* Para dar mais destaque */
 }
+
 
 /* Linha amarela abaixo do h2 */
 #ministerios h2::after {
@@ -421,89 +416,89 @@ section {
 
 /* Contato */
 #contato {
-  padding: 80px 20px;
-  background-color: #fff;
+    padding: 80px 20px;
+    background-color: #fff;
 }
 
 .contato-container {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .contato-container h2 {
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 10px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .linha-amarela {
-  width: 80px;
-  height: 4px;
-  background-color: #f5c400;
-  margin: 0 auto 30px auto;
+    width: 80px;
+    height: 4px;
+    background-color: #f5c400;
+    margin: 0 auto 30px auto;
 }
 
 .contato-container p {
-  font-size: 16px;
-  color: #555;
-  max-width: 700px;
-  margin: 0 auto 40px auto;
+    font-size: 16px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
 }
 
 .contato-form {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
 .contato-form input {
-  padding: 15px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
 }
 
 .contato-form input:focus {
-  border-color: #f5c400;
+    border-color: #f5c400;
 }
 .contato-form button {
-  grid-column: 1 / -1; /* ocupa as duas colunas */
-  padding: 18px 0; /* maior altura */
-  font-size: 18px; /* texto maior */
-  border: none;
-  border-radius: 50px; /* deixa redondo */
-  cursor: pointer;
-  background-color: black;
-  color: white;
-  font-weight: bold;
-  width: 60%; /* deixa menor que a largura total */
-  margin: 0 auto; /* centraliza */
+    grid-column: 1 / -1; /* ocupa as duas colunas */
+    padding: 18px 0;     /* maior altura */
+    font-size: 18px;     /* texto maior */
+    border: none;
+    border-radius: 50px; /* deixa redondo */
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    width: 60%;          /* deixa menor que a largura total */
+    margin: 0 auto;      /* centraliza */
 }
 
 .contato-form button:hover {
-  opacity: 0.9;
+    opacity: 0.9;
 }
 .contato-form {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
 .contato-form input,
 .contato-form textarea {
-  padding: 15px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
 }
 
 .contato-form textarea {
-  grid-column: 1 / -1; /* ocupa as duas colunas */
-  min-height: 150px; /* tamanho maior da caixa */
-  resize: vertical; /* permite redimensionar */
+    grid-column: 1 / -1; /* ocupa as duas colunas */
+    min-height: 150px;   /* tamanho maior da caixa */
+    resize: vertical;    /* permite redimensionar */
 }
 /* Footer */
 footer {
@@ -527,9 +522,7 @@ footer p {
 .social-icons a img {
   width: 40px;
   height: 40px;
-  transition:
-    transform 0.3s,
-    filter 0.3s;
+  transition: transform 0.3s, filter 0.3s;
 }
 
 .social-icons a:hover img {
@@ -579,6 +572,7 @@ footer p {
 
   nav.active {
     max-height: 450px;
+    
   }
 
   nav ul {
@@ -601,25 +595,28 @@ footer p {
   nav ul li.dropdown.active .submenu {
     display: block;
   }
-  nav ul li.dropdown.active:hover .submenu {
-    display: none;
-  }
+
 
   nav ul li .submenu li a {
     padding: 12px 0;
     text-align: center;
   }
+  nav ul li a::after {
+    display: none;
+  }
+
 }
 
+
 @media (max-width: 768px) {
-  header .titulo-img {
-    width: 120px;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    transform: translateX(-60%);
-    text-align: left; /* garante que fique alinhada à esquerda */
-  }
+header .titulo-img {
+  width: 120px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  transform: translateX(-60%);
+text-align: left; /* garante que fique alinhada à esquerda */
+}
 }
 
 /* telas médias Secao inicio */
@@ -644,11 +641,11 @@ footer p {
   #sobre img {
     display: none;
   }
-  #sobre .texto-quadrado {
-    padding: 30px 10px; /* Menos espaço nas laterais */
-    max-width: 700px; /* Limita a largura para deixar o bloco mais estreito */
-    margin: 0 auto; /* Centraliza o texto horizontalmente */
-  }
+#sobre .texto-quadrado {
+  padding: 30px 10px; /* Menos espaço nas laterais */
+  max-width: 700px; /* Limita a largura para deixar o bloco mais estreito */
+  margin: 0 auto; /* Centraliza o texto horizontalmente */
+}
 
   #sobre h2 {
     font-size: 22px;
@@ -733,46 +730,56 @@ footer p {
 
 /* Tablets Contato */
 @media (max-width: 768px) {
-  #contato {
-    padding: 60px 15px;
-  }
+    #contato {
+        padding: 60px 15px;
+    }
 
-  .contato-container h2 {
-    font-size: 32px;
-  }
+    .contato-container h2 {
+        font-size: 32px;
+    }
 
-  .contato-container p {
-    font-size: 15px;
-    margin-bottom: 30px;
-  }
+    .contato-container p {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
 
-  .contato-form {
-    grid-template-columns: 1fr;
-  }
+    .contato-form {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Celulares Contato*/
 @media (max-width: 480px) {
-  #contato {
-    padding: 50px 10px;
-  }
+    #contato {
+        padding: 50px 10px;
+    }
 
-  .contato-container h2 {
-    font-size: 26px;
-  }
+    .contato-container h2 {
+        font-size: 26px;
+    }
 
-  .linha-amarela {
-    width: 60px;
-    height: 3px;
-  }
+    .linha-amarela {
+        width: 60px;
+        height: 3px;
+    }
 
-  .contato-container p {
-    font-size: 14px;
-    line-height: 1.5;
-  }
+    .contato-container p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
 
-  .contato-form input {
-    padding: 12px;
-    font-size: 14px;
-  }
+    .contato-form input {
+        padding: 12px;
+        font-size: 14px;
+    }
 }
+
+
+
+
+
+
+
+
+
+

@@ -474,6 +474,7 @@ footer p {
 
   nav.active {
     max-height: 450px;
+    
   }
 
   nav ul {
@@ -496,14 +497,16 @@ footer p {
   nav ul li.dropdown.active .submenu {
     display: block;
   }
-  nav ul li.dropdown.active:hover .submenu {
-    display: none;
-  }
+
 
   nav ul li .submenu li a {
     padding: 12px 0;
     text-align: center;
   }
+  nav ul li a::after {
+    display: none;
+  }
+
 }
 
 @media (max-width: 768px) {
