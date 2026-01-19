@@ -414,6 +414,56 @@ section {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Contato */
+#contato {
+    padding: 80px 20px;
+    background-color: #fff;
+}
+
+.contato-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contato-container h2 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.linha-amarela {
+    width: 80px;
+    height: 4px;
+    background-color: #f5c400;
+    margin: 0 auto 30px auto;
+}
+
+.contato-container p {
+    font-size: 16px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+.contato-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.contato-form input {
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+.contato-form input:focus {
+    border-color: #f5c400;
+}
+
 /* Footer */
 footer {
   background-color: #111; /* fundo escuro */
@@ -656,4 +706,51 @@ footer p {
     padding: 10px 0;
     text-align: center;
   }
+}
+
+
+/* Tablets Contato */
+@media (max-width: 768px) {
+    #contato {
+        padding: 60px 15px;
+    }
+
+    .contato-container h2 {
+        font-size: 32px;
+    }
+
+    .contato-container p {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+
+    .contato-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Celulares Contato*/
+@media (max-width: 480px) {
+    #contato {
+        padding: 50px 10px;
+    }
+
+    .contato-container h2 {
+        font-size: 26px;
+    }
+
+    .linha-amarela {
+        width: 60px;
+        height: 3px;
+    }
+
+    .contato-container p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .contato-form input {
+        padding: 12px;
+        font-size: 14px;
+    }
 }
