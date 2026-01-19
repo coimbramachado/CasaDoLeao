@@ -11,7 +11,8 @@ a {
   color: inherit;
 }
 
-body, html {
+body,
+html {
   scroll-behavior: smooth;
   max-width: 100%;
   overflow-x: hidden;
@@ -39,78 +40,100 @@ header .titulo-img {
 
 /* Menu de navegação */
 nav {
-  display: flex;
+  display: flex; /* padrão desktop */
   justify-content: flex-end;
   align-items: center;
-  position: relative;
+  position: static; /* padrão desktop */
+  max-height: none;
+  background-color: transparent;
+  transition: none;
 }
 
 nav ul {
-  display: flex;
-  gap: 25px;
-  list-style: none;
+  display: flex; /* links lado a lado no desktop */
+  flex-direction: row;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  list-style: none; /* remove os pontos */
+  padding: 0; /* remove espaçamento interno da lista */
+  margin: 0;
 }
 
 nav ul li a {
-  padding: 8px 12px;
+  padding: 8px 12px; /* espaço interno confortável */
   font-size: 1rem;
-  color: #ffcc01;
-  transition: color 0.3s ease, transform 0.3s ease;
-  position: relative;
+  color: yellow;
+  text-decoration: none;
+  position: relative; /* necessário para o efeito de underline animado */
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease; /* animação suave */
 }
 
-/* Hover com leve movimento e underline */
+/* Efeito hover: leve elevação e cor diferente */
 nav ul li a:hover {
-  color: #fff;
-  transform: translateY(-2px);
+  color: #fff; /* muda cor ao passar o mouse */
+  transform: translateY(-3px); /* leve "flutuar" */
 }
 
+/* Efeito de underline animado */
 nav ul li a::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
-  bottom: -3px;
-  width: 0;
+  bottom: -3px; /* ligeiramente abaixo do texto */
+  width: 0%;
   height: 2px;
-  background-color: #ffcc01;
+  background-color: yellow; /* mesma cor do texto */
   transition: width 0.3s ease;
 }
 
 nav ul li a:hover::after {
-  width: 100%;
+  width: 100%; /* underline cresce ao passar o mouse */
 }
 
-/* Submenu */
+/* Submenu inicial escondido */
+/* Estilo base do submenu */
 nav ul li {
-  position: relative;
+  position: relative; /* necessário para o submenu */
 }
 
+/* Submenu escondido por padrão */
 nav ul li .submenu {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 100%; /* aparece logo abaixo do item pai */
   left: 0;
   background-color: rgba(46, 49, 56, 0.98);
+  list-style: none;
   padding: 0;
   margin: 0;
   border-radius: 5px;
-  min-width: 180px;
+  min-width: 150px;
+  z-index: 10;
 }
 
+/* Links do submenu */
 nav ul li .submenu li a {
   display: block;
-  padding: 10px 15px;
+  padding: 10px 16px;
   color: #fff;
-  transition: background 0.3s, transform 0.3s;
+  text-decoration: none;
+  transition:
+    background 0.3s,
+    transform 0.3s;
 }
 
+/* Hover submenu (desktop) */
 nav ul li .submenu li a:hover {
-  background-color: #222;
-  transform: translateX(5px);
+  transform: translateX(5px); /* leve movimento */
 }
 
-/* Mostrar submenu no hover desktop */
-
+/* Mostrar submenu no hover (desktop) */
+nav ul li.dropdown:hover .submenu {
+  display: block;
+}
 /* -------- Menu Hamburger -------- */
 .menu-toggle {
   display: none;
@@ -179,14 +202,14 @@ section p {
   font-weight: bold;
   display: inline-block;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
 .btn-saiba-mais:hover {
   background-color: #222;
   transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Container da tela de exibição */
@@ -214,7 +237,9 @@ section p {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .imagem-exibicao img:hover {
@@ -228,7 +253,6 @@ section p {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  
 }
 
 .conteudo-exibicao h2 {
@@ -266,7 +290,6 @@ section p {
   }
 }
 
-
 /* -------- Footer -------- */
 footer {
   text-align: center;
@@ -285,7 +308,9 @@ footer {
 .social-icons a img {
   width: 40px;
   height: 40px;
-  transition: transform 0.3s, filter 0.3s;
+  transition:
+    transform 0.3s,
+    filter 0.3s;
 }
 
 .social-icons a:hover img {
@@ -298,18 +323,18 @@ footer {
   padding: 40px 20px;
   text-align: center;
   background-color: #000000;
-  font-family: 'Arial', sans-serif; /* Pode trocar para qualquer fonte que quiser */
+  font-family:
+    "Arial", sans-serif; /* Pode trocar para qualquer fonte que quiser */
 }
 
 #ministerios h2 {
   color: white;
   display: inline-block; /* Para que a linha fique do tamanho do texto */
   position: relative; /* Necessário para o pseudo-elemento */
-  font-family: 'Arial', sans-serif; /* Fonte do título */
+  font-family: "Arial", sans-serif; /* Fonte do título */
   font-size: 36px; /* Tamanho maior do título */
   font-weight: bold; /* Para dar mais destaque */
 }
-
 
 /* Linha amarela abaixo do h2 */
 #ministerios h2::after {
@@ -399,7 +424,9 @@ footer p {
 .social-icons a img {
   width: 40px;
   height: 40px;
-  transition: transform 0.3s, filter 0.3s;
+  transition:
+    transform 0.3s,
+    filter 0.3s;
 }
 
 .social-icons a:hover img {
@@ -412,6 +439,24 @@ footer p {
   /* Navbar mobile */
   .menu-toggle {
     display: flex;
+  }
+  header .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  header .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffcc01; /* cor do hamburger */
+    display: block;
+    border-radius: 2px;
   }
 
   nav {
@@ -428,7 +473,7 @@ footer p {
   }
 
   nav.active {
-    max-height: 400px;
+    max-height: 450px;
   }
 
   nav ul {
@@ -445,15 +490,30 @@ footer p {
     display: none;
     flex-direction: column;
     align-items: center;
+    color: #ffcc01;
   }
 
   nav ul li.dropdown.active .submenu {
-    display: flex;
+    display: block;
+  }
+  nav ul li.dropdown.active:hover .submenu {
+    display: none;
   }
 
   nav ul li .submenu li a {
     padding: 12px 0;
     text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  header .titulo-img {
+    width: 120px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    transform: translateX(-40%);
+    text-align: left; /* garante que fique alinhada à esquerda */
   }
 }
 
@@ -473,7 +533,6 @@ footer p {
   }
 }
 
-
 @media (max-width: 992px) {
   .ministerio_IMG {
     width: calc(50% - 20px); /* 2 colunas em tablets */
@@ -489,38 +548,4 @@ footer p {
   .ministerio_IMG img {
     width: 80%; /* Reduz um pouco a imagem para caber melhor */
   }
-}
-
-
-
-/* Ajustes mobile subtitulo */
-/* Mobile: submenu aparece ao clicar */
-/* Mobile */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-  }
-
-  nav ul li.dropdown .submenu {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: none;
-  }
-
-  nav ul li.dropdown.active .submenu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav ul li .submenu li a {
-    padding: 10px 0;
-    text-align: center;
-  }
-
-
 }
