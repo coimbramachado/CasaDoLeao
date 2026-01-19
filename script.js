@@ -52,14 +52,25 @@ window.addEventListener("scroll", () => {
 });
 
 // Dropdowns (Ministérios)
-const dropdowns = document.querySelectorAll('nav ul li.dropdown > a');
+// Dropdowns (Ministérios)
+const dropdowns = document.querySelectorAll('nav ul li.dropdown');
 
 dropdowns.forEach(drop => {
-  drop.addEventListener('click', function (e) {
+  const link = drop.querySelector('a');
+
+  link.addEventListener('click', function (e) {
     if (window.innerWidth <= 768) {
       e.preventDefault(); // impede navegação
-      const parent = this.parentElement;
-      parent.classList.toggle('active'); // abre submenu
+
+      // Fecha todos os outros dropdowns
+      dropdowns.forEach(d => {
+        if (d !== drop) {
+          d.classList.remove('active');
+        }
+      });
+
+      // Toggle do dropdown clicado
+      drop.classList.toggle('active');
     }
   });
 });
