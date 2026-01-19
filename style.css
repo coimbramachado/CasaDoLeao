@@ -103,7 +103,7 @@ nav ul li {
 nav ul li .submenu {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 100%;           /* aparece logo abaixo do item pai */
   left: 0;
   background-color: rgba(46, 49, 56, 0.98);
   list-style: none;
@@ -113,12 +113,6 @@ nav ul li .submenu {
   min-width: 150px;
   z-index: 10;
 }
-
-/* Exibir submenu quando tiver a classe .open */
-nav ul li .submenu.open {
-  display: block;
-}
-
 
 /* Links do submenu */
 nav ul li .submenu li a {
@@ -470,17 +464,17 @@ section {
     border-color: #f5c400;
 }
 .contato-form button {
-    grid-column: 1 / -1; 
-    padding: 12px 0;      /* menor altura */
-    font-size: 16px;      /* texto menor */
+    grid-column: 1 / -1; /* ocupa as duas colunas */
+    padding: 18px 0;     /* maior altura */
+    font-size: 18px;     /* texto maior */
     border: none;
-    border-radius: 50px;  /* arredondado */
+    border-radius: 50px; /* deixa redondo */
     cursor: pointer;
     background-color: black;
     color: white;
     font-weight: bold;
-    width: 30%;           /* menor largura */
-    margin: 0 auto;
+    width: 60%;          /* deixa menor que a largura total */
+    margin: 0 auto;      /* centraliza */
 }
 
 .contato-form button:hover {
@@ -739,7 +733,7 @@ footer p {
   }
 
   nav ul li.dropdown.active .submenu {
-    display: block;
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
@@ -795,25 +789,4 @@ footer p {
         padding: 12px;
         font-size: 14px;
     }
-}
-
-/* Para mobile, o submenu deve ficar dentro do fluxo (para descer/subir) */
-@media (max-width: 768px) {
-  nav ul li {
-    position: static;
-  }
-
-  nav ul li .submenu {
-    position: static;
-    width: 100%;
-    min-width: 0;
-    border-radius: 0;
-  }
-
-  nav ul li .submenu li a {
-    padding-left: 30px;
-  }
-  nav ul li.dropdown:hover .submenu {
-    display: none;
-  }
 }

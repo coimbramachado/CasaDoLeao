@@ -110,9 +110,6 @@ nav ul li .submenu li a:hover {
 }
 
 /* Mostrar submenu no hover desktop */
-nav ul li.dropdown:hover .submenu {
-  display: block;
-}
 
 /* -------- Menu Hamburger -------- */
 .menu-toggle {
@@ -524,4 +521,6 @@ footer p {
     padding: 10px 0;
     text-align: center;
   }
+
+
 }
