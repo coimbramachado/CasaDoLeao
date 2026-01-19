@@ -63,3 +63,32 @@ dropdowns.forEach(drop => {
     }
   });
 });
+
+
+  const form = document.getElementById("contact-form");
+  const successMessage = document.getElementById("success-message");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { "Accept": "application/json" }
+    })
+    .then(response => {
+      if (response.ok) {
+        successMessage.style.display = "block";
+        form.reset();
+
+        // faz a mensagem sumir após 5 segundos
+        setTimeout(() => {
+          successMessage.style.display = "none";
+        }, 2000);
+
+      } else {
+        alert("Erro ao enviar. Tente novamente.");
+      }
+    });
+  });
+

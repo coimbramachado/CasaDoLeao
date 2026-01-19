@@ -10,6 +10,7 @@
   <!-- no <head> -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header>
     <h1 class="titulo">
@@ -21,25 +22,25 @@
       <span></span>
       <span></span>
     </button>
-<nav>
-  <ul>
-    <li><a href="#inicio">Início</a></li>
-    <li><a href="#sobre">Sobre Nós</a></li>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre Nós</a></li>
 
-    <!-- Menu com submenu -->
-    <li class="dropdown">
-      <a href="#ministerios">Ministerios ▼</a>
-      <ul class="submenu">
-        <li><a href=".\pages\homens.html">Entre homens</a></li>
-        <li><a href=".\pages\elas.html">Entre Elas</a></li>
-        <li><a href=".\pages\teens.html">Teens</a></li>
-        <li><a href=".\pages\Kids.html">Casa Do Leao Kids</a></li>
+        <!-- Menu com submenu -->
+        <li class="dropdown">
+          <a href="#ministerios">Ministerios ▼</a>
+          <ul class="submenu">
+            <li><a href=".\pages\homens.html">Entre homens</a></li>
+            <li><a href=".\pages\elas.html">Entre Elas</a></li>
+            <li><a href=".\pages\teens.html">Teens</a></li>
+            <li><a href=".\pages\Kids.html">Casa Do Leao Kids</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#contato">Contato</a></li>
       </ul>
-    </li>
-
-    <li><a href="#contato">Contato</a></li>
-  </ul>
-</nav>
+    </nav>
 
   </header>
 
@@ -53,7 +54,7 @@
       </a>
     </section>
     <section id="sobre">
-     <img src="img/LEAO.PNG" alt="Foto do evento" >
+      <img src="img/LEAO.PNG" alt="Foto do evento">
       <div>
         <B>
           <h2>CASA DO LEÃO</h2>
@@ -96,84 +97,89 @@
       </div>
     </section>
 
-<section id="ministerios">
-  <h2>Ministérios</h2>
-  <div class="ministerios-container">
+    <section id="ministerios">
+      <h2>Ministérios</h2>
+      <div class="ministerios-container">
 
-    <div class="ministerio_IMG">
-      <img src="img/teens.png" alt="Ministério 1">
-      <a href="pages\teens.html" class="btn-saiba-mais">Saiba Mais</a>
-    </div>
+        <div class="ministerio_IMG">
+          <img src="img/teens.png" alt="Ministério 1">
+          <a href="pages\teens.html" class="btn-saiba-mais">Saiba Mais</a>
+        </div>
 
-    <div class="ministerio_IMG">
-      <img src="img/homens.png" alt="Ministério 2">
-      <a href="pages\homens.html" class="btn-saiba-mais">Saiba Mais</a>
-    </div>
+        <div class="ministerio_IMG">
+          <img src="img/homens.png" alt="Ministério 2">
+          <a href="pages\homens.html" class="btn-saiba-mais">Saiba Mais</a>
+        </div>
 
-    <div class="ministerio_IMG">
-      <img src="img/elas.png" alt="Ministério 3" width="293" height="102" sizes="293px">
-      <a href="pages\elas.html" class="btn-saiba-mais">Saiba Mais</a>
-    </div>
+        <div class="ministerio_IMG">
+          <img src="img/elas.png" alt="Ministério 3" width="293" height="102" sizes="293px">
+          <a href="pages\elas.html" class="btn-saiba-mais">Saiba Mais</a>
+        </div>
 
-    <div class="ministerio_IMG">
-      <img src="img/kids.png" alt="Ministério 4">
-      <a href="pages\Kids.html" class="btn-saiba-mais">Saiba Mais</a>
-    </div>
+        <div class="ministerio_IMG">
+          <img src="img/kids.png" alt="Ministério 4">
+          <a href="pages\Kids.html" class="btn-saiba-mais">Saiba Mais</a>
+        </div>
 
-    <div class="ministerio_IMG">
-      <img src="img/jardim.png" alt="Ministério 5">
-      <a href="#detalhes5" class="btn-saiba-mais">Saiba Mais</a>
-    </div>
+        <div class="ministerio_IMG">
+          <img src="img/jardim.png" alt="Ministério 5">
+          <a href="#detalhes5" class="btn-saiba-mais">Saiba Mais</a>
+        </div>
 
-    <div class="ministerio_IMG">
-      <img src="img/casa.png" alt="Ministério 6">
-      <a href="#detalhes6" class="btn-saiba-mais">Saiba Mais</a>
-    </div>
+        <div class="ministerio_IMG">
+          <img src="img/casa.png" alt="Ministério 6">
+          <a href="#detalhes6" class="btn-saiba-mais">Saiba Mais</a>
+        </div>
 
-  </div>
-</section>
+      </div>
+    </section>
 
-
- <section id="contato">
-    <div class="contato-container">
+    <section id="contato">
+      <div class="contato-container">
         <h2>Contato</h2>
         <div class="linha-amarela"></div>
 
         <p>
-            Nossa equipe está pronta para te atender. Em caso de dúvidas ou sugestões,
-            não exite em nos contactar, preenchendo o formulário abaixo.
-            Logo em breve, responderemos.
+          Nossa equipe está pronta para te atender. Em caso de dúvidas ou sugestões,
+          não exite em nos contactar, preenchendo o formulário abaixo.
+          Logo em breve, responderemos.
         </p>
 
-        <form class="contato-form">
-            <input type="text" placeholder="Nome">
-            <input type="email" placeholder="E-mail">
-            <input type="text" placeholder="Telefone">
-            <input type="text" placeholder="Assunto">
+        <form class="contato-form" id="contact-form" action="https://formspree.io/f/mbddyljb" method="POST">
+          <input type="text" name="nome" placeholder="Nome" required>
+          <input type="email" name="email" placeholder="E-mail" required>
+          <input type="text" name="telefone" placeholder="Telefone">
+          <textarea name="mensagem" placeholder="Mensagem" required></textarea>
+
+          <button type="submit">Enviar</button>
         </form>
-    </div>
-</section>
+
+        <p id="success-message" style="display:none; color: green; margin-top: 20px;">
+          Obrigado! Sua mensagem foi enviada com sucesso. 😊
+        </p>
+      </div>
+    </section>
 
   </main>
 
-<footer>
-  <div class="social-icons">
-    <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
-      <img src="img\icon\face.png" alt="Facebook">
-    </a>
-    <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
-      <img src="img\icon\insta.png" alt="Instagram">
-    </a>
-    <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
-      <img src="img\icon\you.png" alt="YouTube">
-    </a>
-    <a href="https://www.spotify.com/" target="_blank" aria-label="Spotify">
-      <img src="img\icon\spoty.png" alt="Spotify">
-    </a>
-  </div>
-  <br>
-  <p>&copy; 2025 Nome da Igreja. Todos os direitos reservados.</p>
-</footer>
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+        <img src="img\icon\face.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+        <img src="img\icon\insta.png" alt="Instagram">
+      </a>
+      <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+        <img src="img\icon\you.png" alt="YouTube">
+      </a>
+      <a href="https://www.spotify.com/" target="_blank" aria-label="Spotify">
+        <img src="img\icon\spoty.png" alt="Spotify">
+      </a>
+    </div>
+    <br>
+    <p>&copy; 2025 Nome da Igreja. Todos os direitos reservados.</p>
+  </footer>
   <script src="script.js"></script>
 </body>
 

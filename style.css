@@ -463,7 +463,43 @@ section {
 .contato-form input:focus {
     border-color: #f5c400;
 }
+.contato-form button {
+    grid-column: 1 / -1; 
+    padding: 12px 0;      /* menor altura */
+    font-size: 16px;      /* texto menor */
+    border: none;
+    border-radius: 50px;  /* arredondado */
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    width: 30%;           /* menor largura */
+    margin: 0 auto;
+}
 
+.contato-form button:hover {
+    opacity: 0.9;
+}
+.contato-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.contato-form input,
+.contato-form textarea {
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+.contato-form textarea {
+    grid-column: 1 / -1; /* ocupa as duas colunas */
+    min-height: 150px;   /* tamanho maior da caixa */
+    resize: vertical;    /* permite redimensionar */
+}
 /* Footer */
 footer {
   background-color: #111; /* fundo escuro */
