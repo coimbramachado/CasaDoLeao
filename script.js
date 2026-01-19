@@ -51,29 +51,26 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// Dropdowns (Ministérios)
+
 // Dropdowns (Ministérios)
 const dropdowns = document.querySelectorAll('nav ul li.dropdown');
 
 dropdowns.forEach(drop => {
   const link = drop.querySelector('a');
 
-  link.addEventListener('click', function (e) {
-    if (window.innerWidth <= 768) {
-      e.preventDefault(); // impede navegação
-
-      // Fecha todos os outros dropdowns
-      dropdowns.forEach(d => {
-        if (d !== drop) {
-          d.classList.remove('active');
-        }
-      });
-
-      // Toggle do dropdown clicado
-      drop.classList.toggle('active');
-    }
-  });
+link.addEventListener('click', function (e) {
+  if (window.innerWidth <= 768) {
+    e.preventDefault();
+    dropdowns.forEach(d => {
+      if (d !== drop) d.classList.remove('active');
+      d.querySelector('.submenu').classList.remove('open');
+    });
+    drop.classList.toggle('active');
+    drop.querySelector('.submenu').classList.toggle('open');
+  }
 });
+});
+
 
 
   const form = document.getElementById("contact-form");
